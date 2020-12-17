@@ -1,3 +1,8 @@
+## To Run the Tests
+1. `cd into the src folder`
+2. `python -m pytest ../tests`
+
+
 # Master Mind Kata
 
 Mastermind or Master Mind is a code-breaking game for two players. 
