@@ -5,9 +5,9 @@ from typing import List
 
 
 
-class ValidColour(RuleInterface):
+class ValidColourRule(RuleInterface):
 
-    def is_valid(self, user_input: List[Colours]):
+    def is_valid(self, user_input: List):
         for colour in user_input:
             if not colour in Colours.__members__:
                 self.invalid_colour = colour

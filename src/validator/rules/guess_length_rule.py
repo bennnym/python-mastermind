@@ -5,7 +5,7 @@ from typing import List
 
 class GuessLengthRule(RuleInterface):
     
-    def is_valid(self, user_input: List[Colours]):
+    def is_valid(self, user_input: List):
         return len(user_input) == 4
     
     def error_message(self):

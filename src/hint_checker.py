@@ -1,8 +1,8 @@
 from typing import List
 import random
 
-from src.enums.colours import Colours
-from src.enums.hints import Hints
+from enums.colours import Colours
+from enums.hints import Hints
 
 
 
@@ -10,8 +10,9 @@ from src.enums.hints import Hints
 class HintChecker:
     
     def get_hints(self, user_input, secret_code):
-        black_hints = self._get_black_hints(user_input, secret_code)
-        white_hints = self._get_white_hints(user_input, secret_code)
+        user_input_colours = [Colours[colour] for colour in user_input]
+        black_hints = self._get_black_hints(user_input_colours, secret_code)
+        white_hints = self._get_white_hints(user_input_colours, secret_code)
         all_hints = black_hints + white_hints
         random.shuffle(all_hints)
         return all_hints
@@ -22,7 +23,7 @@ class HintChecker:
 
         for colour in user_input:
             if colour in secret_code:
-                hints.append(Hints.White)
+                hints.append(Hints.White.name)
                 secret_code.remove(colour)
                 
         return hints
@@ -34,7 +35,7 @@ class HintChecker:
         for index, colour in enumerate(user_input):
             if colour == secret_code[index]:
                 secret_code[index] = ''
-                hints.append(Hints.Black)
+                hints.append(Hints.Black.name)
                 
         return hints
             
